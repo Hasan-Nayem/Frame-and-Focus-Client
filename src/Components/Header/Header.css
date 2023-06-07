@@ -1,0 +1,19 @@
+.btn{
+
+}
+.join-btn{
+    background-color: #96BB7C;
+    padding: 15px 30px;
+    border-radius: 6px;
+    color: #fff;
+    text-decoration: none;
+}
+@media screen and (max-width: 576px){
+    .join-btn{
+        background-color: #96BB7C;
+        padding: 7px 15px;
+        border-radius: 3px;
+        color: #fff;
+        text-decoration: none;
+    }
+}
