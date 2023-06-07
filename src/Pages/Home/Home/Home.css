@@ -1,0 +1,31 @@
+.bar{
+    width: 25%;
+    border: 3px solid #fa0000;
+    color: #fa0000;
+}
+.package-section{
+    margin-top: 150px;
+}
+.package-title{
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 50px;
+    letter-spacing: 0.2px;
+    color: #252B42;
+    
+}
+@media screen and (max-width: 576px){
+    .package-title{
+        text-align: center;
+        font-size: 1.5rem;
+    }   
+    .card-wrapper{
+        flex-direction: column;
+        text-align: center;
+    }
+    .bar{
+        width: 100%;
+        border: 1px solid #fa0000;
+        color: #fa0000;
+    }
+}
