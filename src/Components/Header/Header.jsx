@@ -4,14 +4,14 @@ import './Header.css';
 
 const Header = () => {
     return (
-        <div className="container">
+        <div className="container my-3">
             <Navbar expand="lg">
                 <Container fluid>
                     <Navbar.Brand href="#">Brand Name</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                     <Nav
-                        className="mx-auto my-2 my-lg-0 fw-bolder"
+                        className="ps-5 mx-auto my-2 my-lg-0 fw-bolder"
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >

@@ -1,0 +1,59 @@
+.join-us{
+    text-decoration: none;
+    color: white;
+    padding: 15px 30px;
+    background-color: #96BB7C;
+
+}
+.learn-more{
+    text-decoration: none;
+    color: #96BB7C;
+    padding: 15px 34px;
+    border: 1px solid #96BB7C;
+}
+.welcome{
+    margin-top: 5rem;
+}
+@media screen and (max-width: 576px){
+    .title{
+
+    }   
+    .heading{
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+    }
+    .bottom-text{
+        text-align: center;
+    }
+    .links{
+        padding: 10px 15px;
+    }
+
+    .title-2{
+
+    }   
+    .heading-2{
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .bottom-text-2{
+        text-align: center;
+
+    }
+    .links-2{
+        padding: 10px 10px;
+        font-size: 14px;
+
+    }
+    .header-3{
+        width: 100%;
+        text-align: center;
+    }
+    .links-2{
+        padding: 10px 10px;
+        font-size: 12px;
+    }
+}
