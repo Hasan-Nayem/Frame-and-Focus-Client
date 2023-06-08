@@ -7,7 +7,7 @@ const Footer = () => {
                 <div className="row">
                 <div className="col-md-4 col-sm-12 p-5">
                     <h3 className="p-3 ">Company Info</h3>
-                    <img src="assets/images/logo.png" className="p-3" alt="" />
+                    <img src="" className="p-3" alt="" />
                     <p className="text-wrap p-3 fs-5 text-muted">There are many variations of
                     passages of Lorem Ipsum
                     available, but the majority have

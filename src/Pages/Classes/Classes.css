@@ -1,0 +1,23 @@
+.title-section{
+    background-color: #F5F6F7;
+    padding: 0.5em;
+}
+.informations{
+    margin-top: 150px;
+}
+.get-btn{
+    background-color: #96BB7C;
+    padding: 15px 30px;
+    border-radius: 6px;
+    color: #fff;
+    border: #96BB7C;
+}
+.all-classes{
+    margin-top: 150px;
+}
+.all-classes .title{
+    margin-bottom: 50px;
+}
+.special{
+    border-bottom: 3px solid #E74040;
+}

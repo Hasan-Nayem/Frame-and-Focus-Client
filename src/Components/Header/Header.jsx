@@ -17,8 +17,8 @@ const Header = () => {
                         navbarScroll
                     >
                         <ActiveLinks to='/'>Home</ActiveLinks>
-                        <Nav.Link href="#action2">Classes</Nav.Link>
-                        <Nav.Link href="#action2">Instructors</Nav.Link>
+                        <ActiveLinks to='/classes'>Classes</ActiveLinks>
+                        <ActiveLinks to='/instructors'>Instructors</ActiveLinks>
                         <Nav.Link href="#action2">Dashboard</Nav.Link>
                     </Nav>
                     <Navbar.Collapse id="navbarScroll">
