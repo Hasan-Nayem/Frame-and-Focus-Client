@@ -63,7 +63,17 @@ const Home = () => {
                 </section>
             </div>
             <section className="newsletter">
-                
+               <div className="container text-center">
+                    <p className="fw-bolder" style={{color: "#96BB7C"}}>Newsletter</p>
+                    <h3 className="fw-bolder mb-3">Watch Our Classes</h3>
+                    <p className="mb-3 w-50 mx-auto" style={{color: "#737373"}}>Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics. </p>
+               </div>
+               <div className="text-center container w-50 my-5">
+                    <div className="input-group mb-3">
+                        <input type="text" className="form-control p-3" placeholder="Your Email Address" aria-label="" aria-describedby="basic-addon2" />
+                        <span className="input-group-text" style={{backgroundColor: "#96BB7C" , color: "#fff"}} id="basic-addon2">Subscribe</span>
+                    </div>
+               </div>
             </section>
         </>
     );
