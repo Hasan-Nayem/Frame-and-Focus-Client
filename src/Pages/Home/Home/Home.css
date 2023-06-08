@@ -51,4 +51,35 @@
         border: 1px solid #fa0000;
         color: #fa0000;
     }
+    .newsletter{
+        padding: 10px;
+    }
+    .newsletter div{
+        width: 100%;
+    }
+    .newsletter .top-title{
+        padding-top: 15px;
+
+    }
+    .newsletter .description{
+        width: 100%;
+        
+    }
+    .newsletter .input-div{
+        width: 100%;
+    }
+
+    /* Top margins */
+    .package-section{
+        margin-top: 50px;
+    }
+    .popular-classes{
+        margin-top: 50px;
+    }
+    .popular-instructors{
+        margin-top: 50px;
+    }
+    .newsletter{
+        margin-top: 50px;
+    }
 }

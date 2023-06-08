@@ -1,0 +1,12 @@
+h3{
+    font-weight: 800;
+    color: #252B42;
+}
+.footer{
+    margin-top: 150px;
+}
+@media screen and (max-width: 576px){
+    .footer{
+        margin-top: 0px;
+    }
+}
