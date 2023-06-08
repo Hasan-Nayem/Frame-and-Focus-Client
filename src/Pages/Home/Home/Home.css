@@ -1,7 +1,8 @@
 .bar{
     width: 25%;
     border: 3px solid #fa0000;
-    color: #fa0000;
+    /* color: #fa0000; */
+    background-color: #E74040;
 }
 .package-section{
     margin-top: 150px;

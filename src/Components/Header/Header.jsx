@@ -1,6 +1,7 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import './Header.css';
+import ActiveLinks from "../ActiveLinks/ActiveLinks";
 
 const Header = () => {
     return (
@@ -15,7 +16,7 @@ const Header = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Home</Nav.Link>
+                        <ActiveLinks to='/'>Home</ActiveLinks>
                         <Nav.Link href="#action2">Classes</Nav.Link>
                         <Nav.Link href="#action2">Instructors</Nav.Link>
                         <Nav.Link href="#action2">Dashboard</Nav.Link>
@@ -27,8 +28,9 @@ const Header = () => {
                             navbarScroll
                         >
                         </Nav>
-                        <Link className="btn mx-3" style={{ color: '#96BB7C', fontWeight: "bolder"}}>Login</Link>
-                        <Link className="join-btn mx-3">Join With Us <i className="fa-solid fa-arrow-right ms-2"></i> </Link>
+                        {/* <ActiveLinks to='/login' className="btn mx-3" style={{ color: '#96BB7C', fontWeight: "bolder"}}>Login</ActiveLinks> */}
+                        <Link to='/login' className="btn mx-3" style={{ color: '#96BB7C', fontWeight: "bolder"}}>Login</Link>
+                        <Link to='/registration' className="join-btn mx-3">Join With Us <i className="fa-solid fa-arrow-right ms-2"></i> </Link>
                     </Navbar.Collapse>
                     </Navbar.Collapse>
                 </Container>
