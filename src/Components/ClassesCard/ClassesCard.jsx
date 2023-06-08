@@ -20,7 +20,7 @@ const ClassesCard = () => {
                                 <p className="mx-3"><span className="fw-bolder">$ : </span>4500/-</p>
                                 <p>Available Seats : 20</p>
                             </div> 
-                            <Link className="mx-3 select-btn my-2">Select This Class</Link>
+                            {/* <Link className="mx-3 select-btn my-2">Select This Class</Link> */}
                             <Link className="mx-3 select-btn my-2">Selected<i className="fa-solid fa-circle-check ms-2"></i></Link>
                         </div>
                     </div>

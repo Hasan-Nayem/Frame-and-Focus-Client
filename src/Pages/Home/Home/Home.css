@@ -18,6 +18,19 @@
 .popular-classes{
     margin-top: 150px;
 }
+.popular-instructors{
+    margin-top: 150px;
+}
+.show-btn{
+    color: #fff;
+    padding: 15px 30px;
+    background-color: rgb(150, 187, 124);
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.2s;
+    border: none;
+}
 @media screen and (max-width: 576px){
     .package-title{
         text-align: center;

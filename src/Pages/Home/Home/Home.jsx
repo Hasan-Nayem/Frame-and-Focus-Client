@@ -3,6 +3,7 @@ import './Home.css';
 import icon1 from '../../../assets/icon/pc.png'
 import icon2 from '../../../assets/icon/telescope.png'
 import ClassesCard from "../../../Components/ClassesCard/ClassesCard";
+import InstructorsCard from "../../../Components/InstructorsCard/InstructorsCard";
 
 const Home = () => {
 
@@ -38,14 +39,32 @@ const Home = () => {
                 </section>
                 <section className="popular-classes">
                     <p style={{color: "#96BB7C", fontSize: '18px', fontWeight : "800"}}>Popular Classes</p>
-                    <h1 className="my-3 fw-bold fs-3">Take a look at which classes are most liked by everyone</h1>
+                    <h1 className="my-3 fw-bold fs-3">Take A Look At Which Classes Are Most Liked By Everyone</h1>
                     
                         <ClassesCard></ClassesCard>
                         <ClassesCard></ClassesCard>
                         <ClassesCard></ClassesCard>
+                        <ClassesCard></ClassesCard>
+                        <ClassesCard></ClassesCard>
+                        <ClassesCard></ClassesCard>
                 </section>
-                
+                <section className="popular-instructors text-center">
+                    <p className="text-start" style={{color: "#96BB7C", fontSize: '18px', fontWeight : "800"}}>Team</p>
+                    <h1 className="text-start my-3 fw-bold fs-3">Get Quality Education</h1>
+                    <div className="text-start row row-cols-1 row-cols-md-2 g-4">
+                        <InstructorsCard></InstructorsCard>
+                        <InstructorsCard></InstructorsCard>
+                        <InstructorsCard></InstructorsCard>
+                        <InstructorsCard></InstructorsCard>
+                        <InstructorsCard></InstructorsCard>
+                        <InstructorsCard></InstructorsCard>
+                    </div>
+                    <button className="my-3 show-btn">Show More</button>
+                </section>
             </div>
+            <section className="newsletter">
+                
+            </section>
         </>
     );
 };
