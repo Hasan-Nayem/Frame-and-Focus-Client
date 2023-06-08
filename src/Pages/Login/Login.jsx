@@ -1,5 +1,6 @@
 import './Login.css';
 import logo from '../../../src/assets/images/login.png'
+import { Link } from 'react-router-dom';
 const Login = () => {
     return (
         <div className="container login-container">
@@ -9,7 +10,7 @@ const Login = () => {
                     <img src={logo} alt="" className="img-fluid" />
                 </div>
                 <div className="col-lg-6 col-sm-12">
-                    <h1 className="title text-center my-4">Welcome Back</h1>
+                    <h1 className="title text-center my-4 fw-bolder fs-1">Welcome Back</h1>
                     <form className="form-control">
                         <div className="form-group my-2">
                             <label htmlFor="email">Your Email</label>
@@ -39,7 +40,7 @@ const Login = () => {
                             Login with Facebook
                         </button>
                     </div>
-
+                    <small>Still not registered!!! Click <Link to='/registration'>Here</Link> to register now</small>
                 </div>
             </div>
         </div>
