@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 
 const Header = () => {
     const {user, logout} = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     const handleLogout = () =>{
         logout()
         .then(() =>{
@@ -42,7 +42,7 @@ const Header = () => {
                         <ActiveLinks to='/classes'>Classes</ActiveLinks>
                         <ActiveLinks to='/instructors'>Instructors</ActiveLinks>
                         {
-                            user && <ActiveLinks to='/dashboard'>Dashboard</ActiveLinks>
+                            user && <ActiveLinks to={`/dashboard`}>Dashboard</ActiveLinks>
                         }
                     </Nav>
                     <Navbar.Collapse id="navbarScroll">

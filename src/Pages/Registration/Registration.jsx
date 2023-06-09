@@ -16,8 +16,6 @@ const Registration = () => {
          const dbData = {
             name: name,
             email: email,
-            phone: phone,
-            address: address,
             role: 1
          }               
         console.log(dbData);

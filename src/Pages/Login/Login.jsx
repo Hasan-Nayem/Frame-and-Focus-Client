@@ -15,7 +15,24 @@ const Login = () => {
     }
     const handleGoogleLogin = () => {
         signInWithGoogleAuthProvider()
-        .then(() => {
+        .then((result) => {
+            //save user data to database
+            const dbData = {
+                name: result.user.displayName,
+                email: result.user.email,
+                role: 1
+             } 
+            fetch('http://localhost:3000/user',{
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dbData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
             navigate(from, {replace : true});
         })
         .catch(err => console.log(err));

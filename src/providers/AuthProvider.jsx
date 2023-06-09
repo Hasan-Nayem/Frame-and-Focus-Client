@@ -45,6 +45,12 @@ const AuthProvider = ({children}) => {
             SetUser(currentUser);
             console.log("Auth state changed");
             SetLoader(false);
+
+            // console.log(`http://localhost:3000/user/${currentUser.email}`);
+            //Get user role 
+            fetch(`http://localhost:3000/user/${currentUser.email}`)
+            .then(response => response.json())
+            .then(data => SetRole(data.role));
         })
 
         //stop observing while unmounting
