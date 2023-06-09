@@ -1,0 +1,14 @@
+.sidenav{
+    border-radius: 6px;
+    height: 100%;
+    padding: 2rem;
+    background-color: #FFF2F3;
+}
+.sidenav ul li{
+    list-style: none;
+    /* text-decoration: none; */
+}
+.sidenav ul li a{
+    color: #201f1f;
+    text-decoration: none;
+}

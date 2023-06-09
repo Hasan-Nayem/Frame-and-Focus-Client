@@ -19,7 +19,7 @@ const Header = () => {
                         <ActiveLinks to='/'>Home</ActiveLinks>
                         <ActiveLinks to='/classes'>Classes</ActiveLinks>
                         <ActiveLinks to='/instructors'>Instructors</ActiveLinks>
-                        <Nav.Link href="#action2">Dashboard</Nav.Link>
+                        <ActiveLinks to='/dashboard'>Dashboard</ActiveLinks>
                     </Nav>
                     <Navbar.Collapse id="navbarScroll">
                         <Nav

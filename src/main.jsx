@@ -12,6 +12,8 @@ import Home from './Pages/Home/Home/Home';
 import './index.css';
 import Classes from './Pages/Classes/Classes';
 import Instructors from './Pages/Instructors/Instructors';
+import Dashboard from './Template/Dashboard';
+import UserDashboard from './Pages/UserDashboard/UserDashboard';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +41,16 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: "/dashboard",
+    element : <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "/dashboard",
+        element: <UserDashboard></UserDashboard>
+      }
+    ]
+  }
 
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -1,4 +1,6 @@
 import image from '../../assets/images/teachers.png';
+import Card from './Card';
+import './Instructors.css'
 const Instructors = () => {
     return (
         <>
@@ -22,6 +24,16 @@ const Instructors = () => {
                     </div>
                 </div>
             </div>
+            <section className='all-instructors'>
+                <div className="container">
+                    <Card></Card>
+                    <Card></Card>
+                    <Card></Card>
+                    <Card></Card>
+                    <Card></Card>
+                    <Card></Card>
+                </div>
+            </section>  
         </>
     );
 };
