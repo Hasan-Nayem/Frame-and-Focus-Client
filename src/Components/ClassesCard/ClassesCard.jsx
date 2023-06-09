@@ -3,7 +3,7 @@ import image from '../../assets/images/man.jpg'
 import './ClassesCard.css'
 const ClassesCard = () => {
     const location = useLocation();
-    console.log(location)
+    // console.log(location)
     return (
         // <div className="row mb-3 p-4 rounded" style={{border: '3px solid #E74040'}}>
         <div className="row mb-1 p-2 rounded">

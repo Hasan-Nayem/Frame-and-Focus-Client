@@ -14,6 +14,7 @@ import Classes from './Pages/Classes/Classes';
 import Instructors from './Pages/Instructors/Instructors';
 import Dashboard from './Template/Dashboard';
 import UserDashboard from './Pages/UserDashboard/UserDashboard';
+import AuthProvider from './providers/AuthProvider';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -55,6 +56,8 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

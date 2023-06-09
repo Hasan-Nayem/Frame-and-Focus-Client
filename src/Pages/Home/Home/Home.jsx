@@ -4,8 +4,12 @@ import icon1 from '../../../assets/icon/pc.png'
 import icon2 from '../../../assets/icon/telescope.png'
 import ClassesCard from "../../../Components/ClassesCard/ClassesCard";
 import InstructorsCard from "../../../Components/InstructorsCard/InstructorsCard";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Home = () => {
+    const {user} = useContext(AuthContext);
+    console.log(user);
 
     return (
         <>
