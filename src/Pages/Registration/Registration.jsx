@@ -10,8 +10,7 @@ import { updateProfile } from "firebase/auth";
 
 const Registration = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const {signUpWithGoogle, user} = useContext(AuthContext);
-    console.log(user)
+    const {signUpWithGoogle} = useContext(AuthContext);
     const handleSignUp = ({name, email, password, confirmPass, phone, address, img}) => {
         //user Data for database
          const dbData = {
@@ -36,8 +35,6 @@ const Registration = () => {
             })
             .then(() => {
                 //save user data to database
-                
-
                 fetch('http://localhost:3000/user',{
                     method: 'POST',
                     headers: { 
@@ -114,9 +111,6 @@ const Registration = () => {
                             </div>
                             <p className="btn-text" style={{fontSize: "12px"}}><b>Sign in with google</b></p>
                         </div>
-                        <button className="loginBtn loginBtn--facebook">
-                            Login with Facebook
-                        </button>
                     </div>
                     <small className="">Already registered!!! Click <Link to='/login'>Here</Link> to Login now</small>
                 </div>

@@ -15,6 +15,7 @@ import Instructors from './Pages/Instructors/Instructors';
 import Dashboard from './Template/Dashboard';
 import UserDashboard from './Pages/UserDashboard/UserDashboard';
 import AuthProvider from './providers/AuthProvider';
+import Loader from './Components/Loader/Loader';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
         element: <UserDashboard></UserDashboard>
       }
     ]
+  },
+  {
+    path: "/loader",
+    element: <Loader></Loader>
   }
 
 ]);

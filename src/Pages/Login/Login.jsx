@@ -1,14 +1,24 @@
 import './Login.css';
 import logo from '../../../src/assets/images/login.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useForm } from 'react-hook-form';
 const Login = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const {signInWithGoogle} = useContext(AuthContext);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const {signInWithGoogleAuthProvider} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const submitForm = () => {
         
+    }
+    const handleGoogleLogin = () => {
+        signInWithGoogleAuthProvider()
+        .then(() => {
+            navigate(from, {replace : true});
+        })
+        .catch(err => console.log(err));
     }
     return (
         <div className="container login-container">
@@ -37,15 +47,15 @@ const Login = () => {
                         <div className="col-lg-4"> <hr /> </div>
                     </div>
                     <div className="d-flex justify-content-center align-items-center my-2">
-                        <div className="google-btn">
+                        <div className="google-btn" onClick={handleGoogleLogin}>
                             <div className="google-icon-wrapper">
                                 <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
                             </div>
                             <p className="btn-text" style={{fontSize: "12px"}}><b>Sign in with google</b></p>
                         </div>
-                        <button className="loginBtn loginBtn--facebook">
+                        {/* <button className="loginBtn loginBtn--facebook">
                             Login with Facebook
-                        </button>
+                        </button> */}
                     </div>
                     <small>Still not registered!!! Click <Link to='/registration'>Here</Link> to register now</small>
                 </div>
