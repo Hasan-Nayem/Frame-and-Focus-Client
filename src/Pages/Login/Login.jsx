@@ -5,8 +5,8 @@ import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useForm } from 'react-hook-form';
 const Login = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const {signInWithGoogleAuthProvider} = useContext(AuthContext);
+    const { register, handleSubmit} = useForm();
+    const {signInWithGoogleAuthProvider } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -21,7 +21,7 @@ const Login = () => {
                 name: result.user.displayName,
                 email: result.user.email,
                 role: 1
-             } 
+             }
             fetch('http://localhost:3000/user',{
                 method: 'POST',
                 headers: { 
@@ -31,8 +31,20 @@ const Login = () => {
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+                console.log( 'from login page',data);
             })
+            .then(() => {
+                fetch('http://localhost:3000/jwt',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(result.user.email)
+                })
+                .then(response => response.json())
+                .then(data => console.log(data))
+            })
+
             navigate(from, {replace : true});
         })
         .catch(err => console.log(err));

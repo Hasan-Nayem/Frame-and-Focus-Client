@@ -7,7 +7,6 @@ export const AuthContext = createContext();
 const AuthProvider = ({children}) => {
     
     const [user, SetUser] = useState(null);
-    const [role, SetRole] = useState(null);
     const [loader,SetLoader] = useState(true);
     const googleProvider = new GoogleAuthProvider();
     const signInWithGoogle = (email,password) => signInWithEmailAndPassword(auth,email,password);
@@ -37,8 +36,6 @@ const AuthProvider = ({children}) => {
         signInWithGoogleAuthProvider,
         signUpWithGoogle,
         logout,
-        SetRole,
-        role,
     }
     useEffect(() =>{
         const unsubscribe = onAuthStateChanged(auth,currentUser => {
@@ -48,9 +45,11 @@ const AuthProvider = ({children}) => {
 
             // console.log(`http://localhost:3000/user/${currentUser.email}`);
             //Get user role 
-            fetch(`http://localhost:3000/user/${currentUser.email}`)
-            .then(response => response.json())
-            .then(data => SetRole(data.role));
+            // if(currentUser){
+            //     fetch(`http://localhost:3000/user/${currentUser.email}`)
+            //     .then(response => response.json())
+            //     .then(data => SetRole(data.role));
+            // }
         })
 
         //stop observing while unmounting

@@ -15,7 +15,8 @@ import Instructors from './Pages/Instructors/Instructors';
 import Dashboard from './Template/Dashboard';
 import UserDashboard from './Pages/UserDashboard/UserDashboard';
 import AuthProvider from './providers/AuthProvider';
-import Loader from './Components/Loader/Loader';
+import Users from './Pages/Admin/Users/Users';
+import PrivateRoutes from './routes/PrivateRoutes';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,11 +46,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element : <Dashboard></Dashboard>,
+    element : <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
     children: [
       {
         path: "/dashboard",
         element: <UserDashboard></UserDashboard>
+      },
+      {
+        path: 'dashboard/admin/user/manage',
+        element : <Users></Users>
       }
     ]
   },
