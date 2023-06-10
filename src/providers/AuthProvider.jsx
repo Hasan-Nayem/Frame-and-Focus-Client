@@ -40,16 +40,31 @@ const AuthProvider = ({children}) => {
     useEffect(() =>{
         const unsubscribe = onAuthStateChanged(auth,currentUser => {
             SetUser(currentUser);
-            console.log("Auth state changed");
+            console.log("Auth state changed",currentUser?.email);
             SetLoader(false);
 
-            // console.log(`http://localhost:3000/user/${currentUser.email}`);
-            //Get user role 
-            // if(currentUser){
-            //     fetch(`http://localhost:3000/user/${currentUser.email}`)
-            //     .then(response => response.json())
-            //     .then(data => SetRole(data.role));
-            // }
+            if(currentUser){
+
+                const email = {
+                    email : currentUser.email
+                }
+                console.log(email);
+
+                fetch('http://localhost:3000/jwt',{
+                    method : 'POST',
+                    headers : { 'Content-type' : 'application/json' },
+
+                    body : JSON.stringify(email),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.token);
+                    localStorage.setItem('phero-assignment-token',data.token);
+                });
+
+            }else{
+                localStorage.removeItem('phero-assignment-token');
+            }
         })
 
         //stop observing while unmounting

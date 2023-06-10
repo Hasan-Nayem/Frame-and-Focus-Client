@@ -33,17 +33,6 @@ const Login = () => {
             .then(data => {
                 console.log( 'from login page',data);
             })
-            .then(() => {
-                fetch('http://localhost:3000/jwt',{
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(result.user.email)
-                })
-                .then(response => response.json())
-                .then(data => console.log(data))
-            })
 
             navigate(from, {replace : true});
         })
