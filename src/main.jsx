@@ -17,6 +17,12 @@ import UserDashboard from './Pages/UserDashboard/UserDashboard';
 import AuthProvider from './providers/AuthProvider';
 import Users from './Pages/Admin/Users/Users';
 import PrivateRoutes from './routes/PrivateRoutes';
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query';
+const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
     path: "/",
@@ -63,7 +69,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </AuthProvider>
   </React.StrictMode>,
 )

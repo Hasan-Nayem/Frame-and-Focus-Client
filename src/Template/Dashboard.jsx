@@ -18,10 +18,10 @@ const Dashboard = () => {
                     <Header></Header>
                         <div className="container">
                             <div className="row">
-                                <div className="col-lg-8">
+                                <div className="col-lg-9">
                                     <Outlet></Outlet>
                                 </div>
-                                <div className="col-lg-4">
+                                <div className="col-lg-3">
                                     <Sidenav></Sidenav>
                                 </div>
                             </div>
