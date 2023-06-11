@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import './Register.css'
 import logo from '../../../src/assets/images/reg.png'
 import { useContext } from "react";
@@ -9,9 +9,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import { updateProfile } from "firebase/auth";
 
 const Registration = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const {signUpWithGoogle} = useContext(AuthContext);
-    const handleSignUp = ({name, email, password, confirmPass, phone, address, img}) => {
+    const {signUpWithGoogle, signInWithGoogleAuthProvider} = useContext(AuthContext);
+    const handleSignUp = ({name, email, password, confirmPass, img}) => {
         //user Data for database
          const dbData = {
             name: name,
@@ -43,13 +46,40 @@ const Registration = () => {
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
-                })               
+                })   
+                navigate(from, {replace : true});            
             })
             .catch(err => toast.error(err));
 
         })
         .catch(err => toast.error(err));
     }
+    const handleGoogleLogin = () => {
+        signInWithGoogleAuthProvider()
+        .then((result) => {
+            //save user data to database
+            const dbData = {
+                name: result.user.displayName,
+                email: result.user.email,
+                role: 1
+             }
+            fetch('http://localhost:3000/user',{
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dbData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log( 'from login page',data);
+            })
+
+            navigate(from, {replace : true});
+        })
+        .catch(err => console.log(err));
+    }
+
     return (
         <div className="container register-container">
             <ToastContainer />
@@ -85,14 +115,6 @@ const Registration = () => {
                             <label htmlFor="image">Profile Photo</label>
                             <input type="text" {...register("img")} name="img" className="form-control" />
                         </div>
-                        <div className="form-group my-2">
-                            <label htmlFor="image">Phone</label>
-                            <input type="text" {...register("phone")} className="form-control" />
-                        </div>
-                        <div className="form-group my-2">
-                            <label htmlFor="image">Address</label>
-                            <input type="text" {...register("address")} className="form-control" />
-                        </div>
                         <div className="form-group my-1">
                             <button className='form-control login-btn '>Register</button>
                         </div>
@@ -103,7 +125,7 @@ const Registration = () => {
                         <div className="col-lg-4"> <hr /> </div>
                     </div>
                     <div className="d-flex justify-content-center align-items-center my-2">
-                        <div className="google-btn">
+                        <div onClick={handleGoogleLogin} className="google-btn">
                             <div className="google-icon-wrapper">
                                 <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
                             </div>

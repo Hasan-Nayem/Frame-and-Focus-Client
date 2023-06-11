@@ -4,14 +4,28 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useForm } from 'react-hook-form';
+import { useState } from "react";
+import Swal from 'sweetalert2';
 const Login = () => {
-    const { register, handleSubmit} = useForm();
-    const {signInWithGoogleAuthProvider } = useContext(AuthContext);
+    const [show, SetShow] = useState(false);
+    const { register, handleSubmit, formState: { errors }} = useForm();
+    const {signInWithGoogleAuthProvider, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-    const submitForm = () => {
-        
+    const submitForm = ({email,password}) => {
+        signInWithGoogle(email,password)
+        .then(() => {
+            navigate(from, {replace : true});
+        })
+        .catch((error) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `Looks Like You've entered wrong email or password - ${error}`,
+                
+              })
+        })
     }
     const handleGoogleLogin = () => {
         signInWithGoogleAuthProvider()
@@ -38,6 +52,9 @@ const Login = () => {
         })
         .catch(err => console.log(err));
     }
+
+    const handleShowPass = () => SetShow(!show);
+
     return (
         <div className="container login-container">
             <div className="row">
@@ -50,10 +67,15 @@ const Login = () => {
                         <div className="form-group my-2">
                             <label htmlFor="email">Your Email</label>
                             <input type="email" {...register("email", { required: true })} className="form-control" />
+                            {errors.email?.type === 'required' && <p className="my-1 text-danger">Email is required</p>}
                         </div>
                         <div className="form-group my-2">
                             <label htmlFor="email">Your Password</label>
-                            <input type="password" className="form-control" />
+                            <input type={show ? "text" : "password"} {...register("password", { required: true })} className="form-control" />
+                            <div className="my-2">
+                                <input onClick={handleShowPass} type="checkbox" name="" id="" placeholder=''/> Show Password
+                            </div>
+                            {errors.password?.type === 'required' && <p className="my-1 text-danger">Password is required</p>}
                         </div>
                         <div className="form-group my-1">
                             <button className='form-control login-btn '>Login</button>
