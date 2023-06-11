@@ -40,7 +40,7 @@ const AuthProvider = ({children}) => {
     useEffect(() =>{
         const unsubscribe = onAuthStateChanged(auth,currentUser => {
             SetUser(currentUser);
-            console.log("Auth state changed",currentUser?.email);
+            // console.log("Auth state changed",currentUser?.email);
             SetLoader(false);
 
             if(currentUser){
@@ -48,7 +48,7 @@ const AuthProvider = ({children}) => {
                 const email = {
                     email : currentUser.email
                 }
-                console.log(email);
+                // console.log(email);
 
                 fetch('http://localhost:3000/jwt',{
                     method : 'POST',
@@ -58,7 +58,7 @@ const AuthProvider = ({children}) => {
                 })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data.token);
+                    // console.log(data.token);
                     localStorage.setItem('phero-assignment-token',data.token);
                 });
 
