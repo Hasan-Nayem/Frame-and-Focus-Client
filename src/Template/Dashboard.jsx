@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import Sidenav from "../Components/Sidenav/Sidenav";
@@ -27,6 +27,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                     <Footer></Footer>
+                    <ScrollRestoration></ScrollRestoration>
                 </>
             }
             

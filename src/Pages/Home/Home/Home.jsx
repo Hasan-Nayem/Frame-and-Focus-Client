@@ -51,6 +51,7 @@ const Home = () => {
                         <ClassesCard></ClassesCard>
                         <ClassesCard></ClassesCard>
                         <ClassesCard></ClassesCard>
+                        
                 </section>
                 <section className="popular-instructors text-center">
                     <p className="text-start" style={{color: "#96BB7C", fontSize: '18px', fontWeight : "800"}}>Team</p>

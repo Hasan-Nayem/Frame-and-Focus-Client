@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
 const useRole = () => {
+    //for all page
     const {user} = useContext(AuthContext);
     const [role, SetRole] = useState(null);
     useEffect(()=>{

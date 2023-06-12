@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 const useUsers = () => {
+    //for admin
     const {data :users = {}, refetch, isLoading} = useQuery({
         queryKey: ['user'],
         queryFn: async() => {

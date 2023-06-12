@@ -33,8 +33,8 @@ const Sidenav = () => {
                         <li className='my-3'><h3>Welcome {user.displayName} </h3></li>
                         <li className='my-3'>Logged In As <span className="badge bg-warning">Instructor</span></li>
                         <li className='my-3'><Link to='/dashboard' className="link">Dashboard</Link></li>
-                        <li className='my-3'><Link className="link">My Classes</Link></li>
-                        <li className='my-3'><Link className="link">Create A New class</Link></li>
+                        <li className='my-3'><Link to='instructor/classes/manage' className="link">My Classes</Link></li>
+                        <li className='my-3'><Link to='instructor/classes/add' className="link">Create A New class</Link></li>
                     </>
                 }
                 {
@@ -45,7 +45,7 @@ const Sidenav = () => {
                         <li className='my-3'>Logged In As <span className="badge bg-success">Admin</span></li>
                         <li className='my-3'><Link to='/dashboard' className="link">Dashboard</Link></li>
                         <li className='my-3'><Link to='admin/user/manage' className="link">Manage Users</Link></li>
-                        <li className='my-3'><Link className="link">Manage Classes</Link></li>
+                        <li className='my-3'><Link to='admin/class/manage' className="link">Manage Classes</Link></li>
                     </>
                 }            
             </ul>
