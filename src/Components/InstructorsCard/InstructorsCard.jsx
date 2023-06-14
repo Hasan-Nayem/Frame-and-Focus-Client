@@ -1,11 +1,11 @@
-import image from '../../assets/images/instructor.jpg';
-const InstructorsCard = () => {
+import image from '../../assets/images/instructor.png';
+const InstructorsCard = ({data}) => {
     return (
-        <div className="col">
+        <div className="col" style={{width:"350px"}}>
             <div className="card p-2">
-            <img src={image} style={{height:"400px"}} className="card-img-top img-thumbnail" />
+            <img src={image} style={{width:"250px"}} className="card-img-top mx-auto" />
             <div className="card-body">
-                <h5 className="card-title fw-bolder fs-3">John Doe</h5>
+                <h5 className="card-title fw-bolder fs-4">{data.name}</h5>
                 <p className="card-text">Photography Instructor</p>
                 <div className="d-flex justify-content-between align-items-center">
                     <div className="info">Years of experience:  5 yrs</div>

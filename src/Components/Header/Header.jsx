@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
+import brand from '../../assets/branding.png'
 
 const Header = () => {
     const {user, logout} = useContext(AuthContext);
@@ -31,7 +32,9 @@ const Header = () => {
             <ToastContainer></ToastContainer>
             <Navbar expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="#">Brand Name</Navbar.Brand>
+                    <Navbar.Brand href="#">
+                        <img src='https://i.ibb.co/5WRrfD4/favicon.png' style={{width: "5rem"}} alt="" />
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                     <Nav

@@ -2,21 +2,39 @@ import Slider from "../Slider/Slider";
 import './Home.css';
 import icon1 from '../../../assets/icon/pc.png'
 import icon2 from '../../../assets/icon/telescope.png'
-import ClassesCard from "../../../Components/ClassesCard/ClassesCard";
 import InstructorsCard from "../../../Components/InstructorsCard/InstructorsCard";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import ClassCardForHome from "../ClassCardForHome/ClassCardForHome";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
     const {user} = useContext(AuthContext);
     console.log(user);
+    const [allClass,SetAllClass] = useState();
+    const [instructors, SetInstructors] = useState();
+    
+    useEffect(() => {
+        fetch(`http://localhost:3000/class`)
+        .then(response => response.json())
+        .then(data => SetAllClass(data))
+    },[])
+    useEffect(() => {
+        fetch(`http://localhost:3000/instructors`)
+        .then(response => response.json())
+        .then(data => SetInstructors(data))
+    },[])
+    // console.log(allClass)
 
     return (
         <>
+        <Helmet>
+            <title>Home</title>
+        </Helmet>
             <Slider></Slider>
             <div className="container">
                 <section className="package-section">
-                    <div className="row ">
+                    <div className="row">
                         <div className="col-lg col-sm-12">
                             <hr className="bar" />
                             <h1 className="package-title my-4">Appropriable Packages</h1>
@@ -45,26 +63,24 @@ const Home = () => {
                     <p style={{color: "#96BB7C", fontSize: '18px', fontWeight : "800"}}>Popular Classes</p>
                     <h1 className="my-3 fw-bold fs-3">Take A Look At Which Classes Are Most Liked By Everyone</h1>
                     
-                        <ClassesCard></ClassesCard>
-                        <ClassesCard></ClassesCard>
-                        <ClassesCard></ClassesCard>
-                        <ClassesCard></ClassesCard>
-                        <ClassesCard></ClassesCard>
-                        <ClassesCard></ClassesCard>
+                        {
+                            allClass?.slice(0,5).map((allClass, index)=> <ClassCardForHome key={index} data={allClass}></ClassCardForHome>)
+                        }
+
+                        
                         
                 </section>
                 <section className="popular-instructors text-center">
                     <p className="text-start" style={{color: "#96BB7C", fontSize: '18px', fontWeight : "800"}}>Team</p>
                     <h1 className="text-start my-3 fw-bold fs-3">Get Quality Education</h1>
                     <div className="text-start row row-cols-1 row-cols-md-2 g-4">
-                        <InstructorsCard></InstructorsCard>
-                        <InstructorsCard></InstructorsCard>
-                        <InstructorsCard></InstructorsCard>
-                        <InstructorsCard></InstructorsCard>
-                        <InstructorsCard></InstructorsCard>
-                        <InstructorsCard></InstructorsCard>
+
+                        {
+                            instructors?.map((instructor, index) => <InstructorsCard key={index} data={instructor}></InstructorsCard>)
+                        }
+                        
                     </div>
-                    <button className="my-3 show-btn">Show More</button>
+                    {/* <button className="my-3 show-btn">Show More</button> */}
                 </section>
             </div>
             <section className="newsletter">

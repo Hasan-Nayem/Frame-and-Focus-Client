@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 import Loader from "../../../Components/Loader/Loader";
 import useUsers from "../../../hooks/useUsers";
 import './Users.css';
-
+import { Helmet } from "react-helmet";
 const Users = () => {
     const [users, refetch, isLoading] = useUsers();
     // console.log(users, "Loading state - " , isLoading);
@@ -24,18 +24,18 @@ const Users = () => {
             body: JSON.stringify(role)
         })
         .then(response => response.json())
-        .then(data => { })
-            refetch();
-            Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Admin Access Given',
-            showConfirmButton: false,
-            timer: 1500
-            })
-       setInterval(() => {
-        refetch();
-       }, 1500); 
+        .then(data => { 
+            if(data.modifiedCount === 1){
+                refetch();
+                Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Admin Access Given',
+                showConfirmButton: false,
+                timer: 1500
+                })
+            }
+         })
     }
     const handleMakeInstructor = (user) => {
         console.log(user.email, "Make him instructor")
@@ -52,8 +52,9 @@ const Users = () => {
             body: JSON.stringify(role)
         })
         .then(response => response.json())
-        .then(data => {})
-            refetch();
+        .then(data => {
+            if(data.modifiedCount === 1){
+                refetch();
                 Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -61,12 +62,14 @@ const Users = () => {
                 showConfirmButton: false,
                 timer: 1500
                 })
-        setInterval(() => {
-            refetch();
-           }, 1500); 
+            }
+        })
     }
     return (
         <div className="">
+            <Helmet>
+                <title> Admin | Manage Users</title>
+            </Helmet>
             <h1 className="my-5 text-center fw-bolder">User Management </h1>
             <table className="table table-striped text-center">
                 <thead className="" style={{fontWeight: "800"}}>

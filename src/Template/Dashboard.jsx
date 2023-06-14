@@ -5,11 +5,14 @@ import Sidenav from "../Components/Sidenav/Sidenav";
 import { AuthContext } from "../providers/AuthProvider";
 import { useContext } from 'react';
 import Loader from "../Components/Loader/Loader";
-
+import { Helmet } from "react-helmet";
 const Dashboard = () => {
     const {loader} = useContext(AuthContext);
     return (
         <>  
+        <Helmet>
+            <title> Frame & Focus | Dashboard</title>
+        </Helmet>
             {
                 loader?
                 <Loader></Loader>

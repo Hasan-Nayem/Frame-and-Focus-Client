@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import './ManageClassByAdmin.css';
+import { Helmet } from "react-helmet";
 const ManageClassByAdmin = () => {
     const {data : allClass = {}, refetch, isLoading} = useQuery({
         queryKey: ['class'],
@@ -94,6 +95,9 @@ const ManageClassByAdmin = () => {
     }
     return (
         <div className="my-5">
+            <Helmet>
+                <title> Admin | Manage Classes</title>
+            </Helmet>
             {
                 !isLoading &&
                 allClass.map(classes =><>

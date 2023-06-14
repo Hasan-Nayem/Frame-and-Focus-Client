@@ -21,9 +21,9 @@ const Sidenav = () => {
                         <li className='my-3'><h5>Welcome {user.displayName}</h5></li>
                         <li className='my-3'>Logged In As <span className="badge bg-info">Student</span></li>
                         <li className='my-3'><Link to='/dashboard' className="link">Dashboard</Link></li>
-                        <li className='my-3'><Link className="link">My Selected Classes</Link></li>
-                        <li className='my-3'><Link className="link">My Enrolled Classes</Link></li>
-                        <li className='my-3'><Link className="link">Payments History</Link></li>
+                        <li className='my-3'><Link to='student/classes/selected' className="link">My Selected Classes</Link></li>
+                        <li className='my-3'><Link to='student/classes/enrolled' className="link">My Enrolled Classes</Link></li>
+                        <li className='my-3'><Link to='student/payments' className="link">Payments History</Link></li>
                     </>
                 }
                 {

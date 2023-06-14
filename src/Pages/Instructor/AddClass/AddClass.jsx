@@ -4,7 +4,7 @@ import { AuthContext } from '../../../providers/AuthProvider';
 import { useForm } from 'react-hook-form';
 import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom';
-
+import { Helmet } from "react-helmet";
 const AddClass = () => {
     const {user} = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors }} = useForm();
@@ -32,8 +32,9 @@ const AddClass = () => {
                     imageData.data.delete_url,
                     imageData.data.thumb.url,
                 ],
-                seat : seat,
-                price : price,
+                seat : parseInt(seat),
+                price : parseInt(price),
+                totalStudent : 0,
                 status : 'pending'
             }
             console.log(insertData);
@@ -63,6 +64,9 @@ const AddClass = () => {
 
     return (
         <div className="container form-container">
+            <Helmet>
+                <title> Instructor | Add Class</title>
+            </Helmet>
             <form onSubmit={handleSubmit(handleForm)} className="form-control">
                 <h1 className="fw-bolder fs-1 text-center my-5">Class Add Form</h1>
                 <div className="row">

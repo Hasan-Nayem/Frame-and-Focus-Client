@@ -1,9 +1,13 @@
 import useClass from '../../../hooks/useClass';
 import './ManageClass.css'
+import { Helmet } from "react-helmet";
 const ManageClass = () => {
     const [allClass, , isLoading] = useClass();
     return (
         <div className="ManageClass">
+            <Helmet>
+                <title> Instructor | Manage Classes</title>
+            </Helmet>
             <h1 className="text-center my-5 fw-bolder">All Classes</h1>
             <table className="table table-striped">
                 <thead>

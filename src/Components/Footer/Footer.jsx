@@ -6,8 +6,8 @@ const Footer = () => {
             <div className="container fw-bolder">
                 <div className="row">
                 <div className="col-md-4 col-sm-12 p-5">
-                    <h3 className="p-3 ">Company Info</h3>
-                    <img src="" className="p-3" alt="" />
+                    {/* <h3 className="p-3 ">Frame & Focus</h3> */}
+                    <img src="https://i.ibb.co/5WRrfD4/favicon.png" style={{width : "10rem"}} className="p-3" alt="" />
                     <p className="text-wrap p-3 fs-5 text-muted">There are many variations of
                     passages of Lorem Ipsum
                     available, but the majority have

@@ -1,10 +1,28 @@
+import { useQuery } from '@tanstack/react-query';
 import ClassesCard from '../../Components/ClassesCard/ClassesCard';
 import image from '../../assets/images/research.png';
 import './Classes.css';
+import Loader from '../../Components/Loader/Loader';
+import { Helmet } from "react-helmet";
 const Classes = () => {
     
+    // http://localhost:3000/class?status=approved
+    const {data : approvedClass = {}, refetch, isLoading} = useQuery({
+        queryKey: ['class'],
+        queryFn: async () => {
+            const result = await fetch(`http://localhost:3000/class?status=approved`);
+            return result.json();
+        }
+    })
+    // console.log(approvedClass);
+
+
     return (
         <>
+        
+        <Helmet>
+            <title> Frame & Focus | Class</title>
+        </Helmet>
             <div className='mt-5 title-section'>
                 <div className="container ">
                     <div className="row">
@@ -22,42 +40,18 @@ const Classes = () => {
 
             <section className="container all-classes">
                 <h1 className="text-center title fw-bolder">Our <span className="special">Classes</span></h1>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
-                <ClassesCard></ClassesCard>
+                {
+                    isLoading? <Loader></Loader> :
+                    approvedClass.map(classes=><ClassesCard key={classes._id} 
+                        id={classes._id}
+                        name={classes.name}
+                        title={classes.title}
+                        image={classes.image[0]}
+                        price={classes.price}
+                        seat={classes.seat}
+                        refetch={refetch}
+                    ></ClassesCard>)
+                }
             </section>
         </>
     );

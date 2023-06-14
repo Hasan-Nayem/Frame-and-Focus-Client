@@ -24,6 +24,10 @@ import {
 import ManageClass from './Pages/Instructor/ManageClass/ManageClass';
 import AddClass from './Pages/Instructor/AddClass/AddClass';
 import ManageClassByAdmin from './Pages/Admin/ManageClassByAdmin/ManageClassByAdmin';
+import SelectedClass from './Pages/Student/SelectedClass/SelectedClass';
+import EnrolledClass from './Pages/Student/EnrolledClass/EnrolledClass';
+import Payments from './Pages/Student/Payments/Payments';
+import Pay from './Pages/Student/Pay/Pay';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -40,6 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/instructors",
+        loader: () => fetch('http://localhost:3000/instructors'),
         element: <Instructors></Instructors>
       },
       {
@@ -78,6 +83,24 @@ const router = createBrowserRouter([
       {
         path: 'instructor/classes/add',
         element: <AddClass></AddClass>
+      },
+      //Student Routes
+      {
+        path : 'student/classes/selected',
+        element : <SelectedClass></SelectedClass>
+      },
+      {
+        path: 'student/classes/enrolled',
+        element: <EnrolledClass></EnrolledClass>
+      },
+      {
+        path: '/dashboard/pay/:id',
+        loader: ({params}) => fetch(`http://localhost:3000/pay/${params.id}`),
+        element : <Pay></Pay>
+      },
+      {
+        path: 'student/payments',
+        element : <Payments></Payments>
       }
     ]
   },

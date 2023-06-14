@@ -1,9 +1,15 @@
+import { useLoaderData } from 'react-router-dom';
 import image from '../../assets/images/teachers.png';
 import Card from './Card';
 import './Instructors.css'
+import { Helmet } from "react-helmet";
 const Instructors = () => {
+    const instructors = useLoaderData();
     return (
         <>
+        <Helmet>
+            <title> Frame & Focus | Instructors</title>
+        </Helmet>
             <div className='mt-5 title-section'>
                 <div className="container ">
                     <div className="row">
@@ -26,12 +32,9 @@ const Instructors = () => {
             </div>
             <section className='all-instructors'>
                 <div className="container">
-                    <Card></Card>
-                    <Card></Card>
-                    <Card></Card>
-                    <Card></Card>
-                    <Card></Card>
-                    <Card></Card>
+                    {
+                        instructors.map(instructor => <Card key={instructor._id} instructor={instructor}></Card>)
+                    }
                 </div>
             </section>  
         </>
