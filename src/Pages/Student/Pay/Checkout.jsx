@@ -3,7 +3,11 @@ import { useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useContext } from 'react';
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 const Checkout = (props) => {
+    const navigate = useNavigate();
+    const currentDate = new Date();
+    const timestamp = currentDate.getTime();
     console.log("from checkout card", props)
     const [cardError, SetError] = useState("");
     const stripe = useStripe();
@@ -95,14 +99,31 @@ const Checkout = (props) => {
                 instructor : props.instructor,
                 courseTitle : props.courseTitle,
                 transactionId : transactionId,
-                createdAt : paymentIntent.created,
+                createdAt : timestamp
             }
             console.log("Store To database - ",storePaymentInfo);
-            Swal.fire({
-                icon: 'success',
-                title: 'Done!!!',
-                text: 'Payment Successful!',
+
+            fetch('http://localhost:3000/save-payment',{
+                method : 'POST',
+                headers : {
+                    'Content-Type': 'application/json',
+                    'authorization' : localStorage.getItem('phero-assignment-token')
+                },
+                body : JSON.stringify(storePaymentInfo)
             })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Done!!!',
+                    text: 'Payment Successful!',
+                })
+                navigate('/classes')
+            })
+
+            
+            
         }
     }
     return (

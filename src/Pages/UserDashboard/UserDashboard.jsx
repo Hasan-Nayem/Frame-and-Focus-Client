@@ -2,6 +2,7 @@ import useRole from '../../hooks/useRole';
 import './UserDashboard.css'
 import InstructorDashboard from '../../Components/InstructorDashboard/InstructorDashboard';
 import AdminDashboard from '../Admin/AdminDashboard/AdminDashboard';
+import StudentDashboard from '../Student/StudentDashboard/StudentDashboard';
 const UserDashboard = () => {
     const userRole = useRole();
     console.log(userRole);
@@ -13,7 +14,7 @@ const UserDashboard = () => {
     }
     if(userRole === 1){
         return <>
-            <div className="my-5 text-center"> <h1 className="fs-1 fw-bolder">Student Dashboard</h1> </div>
+            <StudentDashboard></StudentDashboard>
             
         </>
     }
