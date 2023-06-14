@@ -4,7 +4,7 @@ const useClassess = () => {
     const {data : allClass = {}, isLoading} = useQuery({
         queryKey: ['class'],
         queryFn: async () => {
-            const response = fetch(`http://localhost:3000/class?status=approved`)
+            const response = fetch(`https://frame-and-focus.vercel.app/class?status=approved`)
             return response.json();
         }
     });

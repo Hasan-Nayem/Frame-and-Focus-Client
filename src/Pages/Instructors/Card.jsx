@@ -6,7 +6,7 @@ const Card = ({instructor}) => {
     const {data} = useQuery({
         queryKey: ['class', instructor?.email],
         queryFn: async () => {
-            const result = await fetch(`http://localhost:3000/class/${instructor?.email}`);
+            const result = await fetch(`https://frame-and-focus.vercel.app/class/${instructor?.email}`);
             return result.json();
         }
     })

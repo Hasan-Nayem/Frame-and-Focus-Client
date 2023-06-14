@@ -24,7 +24,7 @@ const Checkout = (props) => {
 
     useEffect(() =>{
 
-            fetch('http://localhost:3000/create-payment-intent',{
+            fetch('https://frame-and-focus.vercel.app/create-payment-intent',{
                 method : 'POST',
                 headers : {
                     'Content-Type': 'application/json',
@@ -103,7 +103,7 @@ const Checkout = (props) => {
             }
             console.log("Store To database - ",storePaymentInfo);
 
-            fetch('http://localhost:3000/save-payment',{
+            fetch('https://frame-and-focus.vercel.app/save-payment',{
                 method : 'POST',
                 headers : {
                     'Content-Type': 'application/json',

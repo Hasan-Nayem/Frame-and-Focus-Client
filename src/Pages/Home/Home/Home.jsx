@@ -15,12 +15,12 @@ const Home = () => {
     const [instructors, SetInstructors] = useState();
     
     useEffect(() => {
-        fetch(`http://localhost:3000/class`)
+        fetch(`https://frame-and-focus.vercel.app/class`)
         .then(response => response.json())
         .then(data => SetAllClass(data))
     },[])
     useEffect(() => {
-        fetch(`http://localhost:3000/instructors`)
+        fetch(`https://frame-and-focus.vercel.app/instructors`)
         .then(response => response.json())
         .then(data => SetInstructors(data))
     },[])

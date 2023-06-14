@@ -39,7 +39,7 @@ const AddClass = () => {
             }
             console.log(insertData);
             if(imageData.success){
-                fetch('http://localhost:3000/class',{
+                fetch('https://frame-and-focus.vercel.app/class',{
                 method : 'POST',
                 headers : {
                     'Content-Type': 'application/json',

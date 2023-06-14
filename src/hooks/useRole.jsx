@@ -6,7 +6,7 @@ const useRole = () => {
     const {user} = useContext(AuthContext);
     const [role, SetRole] = useState(null);
     useEffect(()=>{
-        fetch(`http://localhost:3000/user/${user?.email}`)
+        fetch(`https://frame-and-focus.vercel.app/user/${user?.email}`)
         .then(response => response.json())
         .then(data => SetRole(data.role));
         

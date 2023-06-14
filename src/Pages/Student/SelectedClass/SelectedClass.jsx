@@ -19,7 +19,7 @@ const SelectedClass = () => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/selected/${user.email}?courseId=${data.courseId}`,{
+                fetch(`https://frame-and-focus.vercel.app/selected/${user.email}?courseId=${data.courseId}`,{
                     method: 'DELETE',
                     headers : {
                         authorization : localStorage.getItem('phero-assignment-token')

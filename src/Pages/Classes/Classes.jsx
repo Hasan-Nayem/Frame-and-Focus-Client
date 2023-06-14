@@ -6,11 +6,11 @@ import Loader from '../../Components/Loader/Loader';
 import { Helmet } from "react-helmet";
 const Classes = () => {
     
-    // http://localhost:3000/class?status=approved
+    // https://frame-and-focus.vercel.app/class?status=approved
     const {data : approvedClass = {}, refetch, isLoading} = useQuery({
         queryKey: ['class'],
         queryFn: async () => {
-            const result = await fetch(`http://localhost:3000/class?status=approved`);
+            const result = await fetch(`https://frame-and-focus.vercel.app/class?status=approved`);
             return result.json();
         }
     })

@@ -40,7 +40,7 @@ const ClassesCard = (props) => {
                 availableSeat : props.seat
             }
             // console.log(selectData)
-            fetch(`http://localhost:3000/selectClass`,{
+            fetch(`https://frame-and-focus.vercel.app/selectClass`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

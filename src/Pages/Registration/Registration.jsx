@@ -36,7 +36,7 @@ const Registration = () => {
             })
             .then(() => {
                 //save user data to database
-                fetch('http://localhost:3000/user',{
+                fetch('https://frame-and-focus.vercel.app/user',{
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ const Registration = () => {
                 email: result.user.email,
                 role: 1
              }
-            fetch('http://localhost:3000/user',{
+            fetch('https://frame-and-focus.vercel.app/user',{
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json'

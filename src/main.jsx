@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/instructors",
-        loader: () => fetch('http://localhost:3000/instructors'),
+        loader: () => fetch('https://frame-and-focus.vercel.app/instructors'),
         element: <Instructors></Instructors>
       },
       {
@@ -95,7 +95,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard/pay/:id',
-        loader: ({params}) => fetch(`http://localhost:3000/pay/${params.id}`),
+        loader: ({params}) => fetch(`https://frame-and-focus.vercel.app/pay/${params.id}`),
         element : <Pay></Pay>
       },
       {

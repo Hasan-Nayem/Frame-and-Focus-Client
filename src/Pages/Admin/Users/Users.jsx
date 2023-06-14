@@ -15,7 +15,7 @@ const Users = () => {
         const role = {
             role : 0
         };
-        fetch(`http://localhost:3000/role/${user.email}`,{
+        fetch(`https://frame-and-focus.vercel.app/role/${user.email}`,{
             method: 'PUT',
             headers: { 
                 'Content-Type' : 'application/json',
@@ -43,7 +43,7 @@ const Users = () => {
         const role = {
             role : 2
         };
-        fetch(`http://localhost:3000/role/${user.email}`,{
+        fetch(`https://frame-and-focus.vercel.app/role/${user.email}`,{
             method: 'PUT',
             headers: { 
                 'Content-Type' : 'application/json',

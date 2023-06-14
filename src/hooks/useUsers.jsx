@@ -4,7 +4,7 @@ const useUsers = () => {
     const {data :users = {}, refetch, isLoading} = useQuery({
         queryKey: ['user'],
         queryFn: async() => {
-            const response = await fetch('http://localhost:3000/user',{
+            const response = await fetch('https://frame-and-focus.vercel.app/user',{
                 method: 'GET',
                 headers : {
                     authorization : localStorage.getItem('phero-assignment-token')

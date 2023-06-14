@@ -7,7 +7,7 @@ const useHistory = () => {
     const {data : history = {}, refetch, isLoading : loadHistory} = useQuery({
         queryKey: ['history', user.email],
         queryFn: async () => {
-            const response = await fetch(`http://localhost:3000/history/${user.email}`,{
+            const response = await fetch(`https://frame-and-focus.vercel.app/history/${user.email}`,{
                 method: 'GET',
                 headers : {
                     authorization : localStorage.getItem('phero-assignment-token')

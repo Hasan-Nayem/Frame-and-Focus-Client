@@ -6,7 +6,7 @@ const ManageClassByAdmin = () => {
     const {data : allClass = {}, refetch, isLoading} = useQuery({
         queryKey: ['class'],
         queryFn: async () => {
-            const result = await fetch(`http://localhost:3000/class/`,{
+            const result = await fetch(`https://frame-and-focus.vercel.app/class/`,{
                 method : 'GET',
                 headers : {
                     authorization: localStorage.getItem('phero-assignment-token')
@@ -27,7 +27,7 @@ const ManageClassByAdmin = () => {
             confirmButtonText: 'Yes, approve this!'
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/class/${id}?status=approved`,{
+                fetch(`https://frame-and-focus.vercel.app/class/${id}?status=approved`,{
                     method: 'PUT',
                     headers: {
                         authorization: localStorage.getItem('phero-assignment-token')
@@ -67,7 +67,7 @@ const ManageClassByAdmin = () => {
             confirmButtonText: 'Yes, deny this!'
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/class/${id}`,{
+                fetch(`https://frame-and-focus.vercel.app/class/${id}`,{
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',

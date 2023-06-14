@@ -8,7 +8,7 @@ const useClass = () => {
     const {data : allClass = {}, refetch, isLoading} = useQuery({
         queryKey: ['class', user.email],
         queryFn: async () => {
-            const result = await fetch(`http://localhost:3000/class/${user.email}`,{
+            const result = await fetch(`https://frame-and-focus.vercel.app/class/${user.email}`,{
                 method : 'GET',
                 headers : {
                     authorization: localStorage.getItem('phero-assignment-token')

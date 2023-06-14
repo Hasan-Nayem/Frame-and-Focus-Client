@@ -50,7 +50,7 @@ const AuthProvider = ({children}) => {
                 }
                 // console.log(email);
 
-                fetch('http://localhost:3000/jwt',{
+                fetch('https://frame-and-focus.vercel.app/jwt',{
                     method : 'POST',
                     headers : { 'Content-type' : 'application/json' },
 
