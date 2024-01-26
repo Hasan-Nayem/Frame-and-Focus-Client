@@ -5,8 +5,13 @@
 # Frame and Focus
 **A photography training web application**
 
-Frame and Focus is a learning management website. There are 3 types of user’s role here admin, instructor and students. A new user can open an account and select the classes posted by the instructors and then pay using the payment gateway (Stripe). An instructor can add classes by providing some information and after verified by admin the class will be shown in the Classes page. An admin is the custodian of this website. Because only admin
-verifies everything and can give instructor or student access to any user.
+Frame and Focus is a comprehensive learning management website designed to facilitate seamless interactions between instructors and students. With three distinct user roles – admin, instructor, and student – the platform offers a user-friendly experience. New users can easily create accounts, browse through classes curated by instructors, and conveniently make payments through the secure Stripe payment gateway.
+
+Instructors play a pivotal role by contributing classes to the platform, providing essential details. These submissions undergo verification by the admin before being showcased on the Classes page for students to explore. The admin, serving as the custodian of the website, holds the authority to verify and grant access to both instructors and students.
+
+Powered by a tech stack that includes React.js for dynamic user interfaces, Node.js for efficient server-side scripting, and MongoDB for robust data storage, Frame and Focus ensures a smooth and responsive experience. The integration of Stripe for payment processing, React Router DOM for seamless navigation, Firebase for additional functionality, and JWT for secure authentication collectively contribute to the platform's reliability.
+
+With REST APIs connecting the various components, Frame and Focus stands as a versatile and secure learning hub, empowering both instructors and students in their educational journey.
 
 
 ## Tech Stack
