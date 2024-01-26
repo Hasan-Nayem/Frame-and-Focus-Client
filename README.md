@@ -45,3 +45,43 @@ Start the server
 ```bash
   npm run dev
 ```
+## Screenshots
+
+![App Screenshot](https://i.ibb.co/51n9nJZ/Screenshot-2.png)
+
+![App Screenshot](https://i.ibb.co/6gmnK4j/Screenshot-3.png)
+
+![App Screenshot](https://i.ibb.co/vXHh1Sh/Screenshot-4.png)
+
+![App Screenshot](https://i.ibb.co/4Wcj57C/Screenshot-5.png)
+
+![App Screenshot](https://i.ibb.co/h8vBxV7/Screenshot-6.png)
+
+![App Screenshot](https://i.ibb.co/WD8qGF1/Screenshot-8.png)
+
+![App Screenshot](https://i.ibb.co/P6wcv21/Screenshot-7.png)
+
+
+## 🔗 Links
+
+Live Link - https://frame-and-focus.firebaseapp.com/
+
+
+## Test Account's 
+
+Admin account -
+
+- Email - admin@admin.com
+- Password - Admin@admin.com
+
+User Account - 
+
+- Email - testuser@email.com
+- Password - User$123
+
+
+Instructor Account - 
+
+- Email - instructor@email.com
+- Password - User$123
+
